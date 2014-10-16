@@ -1,0 +1,10 @@
+{
+  "name": "rctech-forum-scrapper",
+  "description": "Scrapes rctech forums for premierrcpdx results",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "request": "latest",
+    "cheerio": "latest"
+  }
+}
