@@ -22,9 +22,8 @@ get_results(oval) do |resp|
   results[:oval].push resp
 end
 
-
-# binding.pry
-# stash results
+# send results
+puts stash results
 # view_stash
 
 
