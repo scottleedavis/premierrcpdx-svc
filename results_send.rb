@@ -15,20 +15,20 @@ end
 
 def send_message(mode, date,link)
 message = <<MESSAGE_END
-From: rctechforum-scrapper me@localhost
+From: topg34rr3sults@gmail.com
 To: skawtus@gmail.com
 Subject: #{mode} results for #{date}
 
 #{link}
-
 MESSAGE_END
 
-  smtp = Net::SMTP.new 'smtp.gmail.com', 587
+  smtp = Net::SMTP.new('smtp.google.com', 587)
   smtp.enable_starttls
-  smtp.start('gmail.com','email','password',:login) 
-  smtp.send_message(message, 'topg34rr3sults@gmail.com', 'skawtus@gmail.com')
-  smtp.finish
+  smtp.start('premierrcpdx.com','topg34rr3sults@gmail.com','password',:login) do |s|
+    s.send_message(message, 'topg34rr3sults@gmail.com', 'skawtus@gmail.com')
+  end
 
 end 
 
 
+# send_message('offroad','12-12-2012','http://example.com')
