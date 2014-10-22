@@ -23,9 +23,12 @@ Subject: #{mode} results for #{date}
 
 MESSAGE_END
 
-  Net::SMTP.start('localhost') do |smtp|
-    smtp.send_message message, 'me@localhost', 'skawtus@gmail.com'
-  end
+  smtp = Net::SMTP.new 'smtp.gmail.com', 587
+  smtp.enable_starttls
+  smtp.start('gmail.com','email','password',:login) 
+  smtp.send_message(message, 'topg34rr3sults@gmail.com', 'skawtus@gmail.com')
+  smtp.finish
+
 end 
 
 

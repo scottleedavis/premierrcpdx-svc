@@ -16,17 +16,26 @@ def stash(files)
     }
 
     files[:offroad].each do |f|
-      new_store[:offroad].push f unless store[:offroad].include? f
+      unless store[:offroad].include? f
+        new_store[:offroad].push f 
+        store[:offroad].push f
+      end
     end
 
     files[:onroad].each do |f|
-      new_store[:onroad].push f unless store[:onroad].include? f
+      unless store[:onroad].include? f
+        new_store[:onroad].push f
+        store[:onroad].push f
+      end
     end
 
     files[:oval].each do |f|
-      new_store[:oval].push f unless store[:oval].include? f
+      unless store[:oval].include? f
+        new_store[:oval].push f 
+        store[:oval].push f 
+      end
     end    
-
+    store
   end
 
   File.open(yml_file, "w") do |file|
