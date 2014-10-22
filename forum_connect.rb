@@ -1,7 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 require 'nokogiri'
-require 'pry'
+# require 'pry'
 
 def conn(url)
   opts = {
