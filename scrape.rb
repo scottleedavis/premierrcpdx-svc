@@ -1,5 +1,6 @@
 require_relative 'forum_connect'
 require_relative 'results_store'
+require_relative 'results_send'
 
 offroad = 'http://www.rctech.net/forum/northwest-racers/839741-premier-rc-official-offroad-3000.html'
 onroad = 'http://www.rctech.net/forum/northwest-racers/839742-premier-rc-official-road-3000.html'
@@ -22,9 +23,8 @@ get_results(oval) do |resp|
   results[:oval].push resp
 end
 
-# send results
-puts stash results
-# view_stash
+new_postings = stash results
+send_results new_postings
 
 
 
