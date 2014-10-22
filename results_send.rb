@@ -22,7 +22,7 @@ Subject: #{mode} results for #{date}
 #{link}
 
 MESSAGE_END
-binding.pry
+
   Net::SMTP.start('localhost') do |smtp|
     smtp.send_message message, 'me@localhost', 'skawtus@gmail.com'
   end
