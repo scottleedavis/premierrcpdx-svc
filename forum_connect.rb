@@ -1,7 +1,7 @@
 require 'faraday'
 require 'faraday_middleware'
 require 'nokogiri'
-# require 'pry'
+require 'pry'
 
 def conn(url)
   opts = {
@@ -20,11 +20,14 @@ def get_results(url)
   doc.css('tr td div a.bigusername').each do |f|
     if f.content == 'PremierRCpdx'
       begin
-        post_date = f.parent.parent.parent.parent.children[1].children[1].children[4].
+        post_date = f.parent.parent.parent.parent.children[1].children[1].children[4].content
         post_date.strip!
-        post_date.split(',')[0]
+        post_date = post_date.split(',')[0]
+        if post_date == 'Yesterday'
+          post_date = Date.today.prev_day.strftime("%m-%d-%Y")
+        end
       rescue
-        post_date = [Date.today.month, Date.today.day, Date.today.year].join('-') #fallback to today's date
+        post_date = Date.today.strftime("%m-%d-%Y")
       end
       f.parent.parent.parent.parent.css('a').each do |dd|
         if dd.content.include? "pdf"
