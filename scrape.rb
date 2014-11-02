@@ -23,6 +23,7 @@ get_results(oval) do |resp|
   results[:oval].push resp
 end
 
+puts results
 stash results
 # new_postings = stash results
 # send_results new_postings
