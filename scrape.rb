@@ -25,3 +25,4 @@ end
 
 puts results
 stash results
+upload results

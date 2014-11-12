@@ -1,5 +1,9 @@
 require 'yaml'
 
+# uploads results to mongodb
+def upload(files)
+  #todo
+end
 
 # stores results, returns values that were 'not' already store
 def stash(files)
