@@ -5,8 +5,7 @@ include Mongo
 
 #mongod --dbpath ~/mongo-data/
 # db = Mongo::Connection.new("localhost").db("mydb") 
-s = "mongodb://username:password@ds053090.mongolab.com:53090"
-client = MongoClient.from_uri(s)
+client = MongoClient.from_uri(ENV['MONGOLAB_URI'])
 db = client.db("mydb")
 
 yml_file = 'results_store.yml'

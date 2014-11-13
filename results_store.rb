@@ -1,11 +1,13 @@
 require 'yaml'
 require 'mongo'
 require 'bson'
-require 'pry'
+include Mongo
 
-# uploads results to mongodb
+# uploads results to mongodb at mongodblab
 def upload(files)
-  db = Mongo::Connection.new("localhost").db("mydb") 
+  #db = Mongo::Connection.new("localhost").db("mydb") 
+  client = MongoClient.from_uri(ENV['MONGOLAB_URI'])
+  db = client.db("mydb")
   
   offroad_coll = db.collection("offroad")
   files[:offroad].each do |d|
