@@ -1,6 +1,5 @@
 require_relative 'forum_connect'
 require_relative 'results_store'
-require_relative 'results_send'
 
 offroad = 'http://www.rctech.net/forum/northwest-racers/839741-premier-rc-official-offroad-3000.html'
 onroad = 'http://www.rctech.net/forum/northwest-racers/839742-premier-rc-official-road-3000.html'

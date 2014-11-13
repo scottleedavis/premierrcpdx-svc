@@ -1,6 +1,5 @@
 require 'mongo'
 require 'bson'
-require 'pry'
 require 'yaml'
 
 #mongod --dbpath ~/mongo-data/

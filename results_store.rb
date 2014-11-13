@@ -1,8 +1,32 @@
 require 'yaml'
+require 'mongo'
+require 'bson'
+require 'pry'
 
 # uploads results to mongodb
 def upload(files)
-  #todo
+  db = Mongo::Connection.new("localhost").db("mydb") 
+  
+  offroad_coll = db.collection("offroad")
+  files[:offroad].each do |d|
+    if 0 == offroad_coll.find("date" => d.keys[0], "link" => d.values[0]).to_a.length
+      offroad_coll.insert( { date: d.keys[0], link: d.values[0] } )
+    end
+  end
+
+  onroad_coll = db.collection("onroad")
+  files[:onroad].each do |d|
+    if 0 == onroad_coll.find("date" => d.keys[0], "link" => d.values[0]).to_a.length
+      onroad_coll.insert( { date: d.keys[0], link: d.values[0] } )
+    end
+  end
+
+  oval_coll = db.collection("oval")
+  files[:oval].each do |d|
+    if 0 == oval_coll.find("date" => d.keys[0], "link" => d.values[0]).to_a.length
+      oval_coll.insert( { date: d.keys[0], link: d.values[0] } )
+    end
+  end
 end
 
 # stores results, returns values that were 'not' already store
