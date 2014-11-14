@@ -25,6 +25,8 @@ def get_results(url)
         post_date = post_date.split(',')[0]
         if post_date == 'Yesterday'
           post_date = Date.today.prev_day.strftime("%m-%d-%Y")
+        elsif post_date == 'Today'
+          post_date = Date.today.strftime("%m-%d-%Y")
         end
       rescue
         post_date = Date.today.strftime("%m-%d-%Y")
