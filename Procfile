@@ -1,1 +1,1 @@
-web: bundle exec ruby scrape.rb
+worker: bundle exec ruby scrape.rb
