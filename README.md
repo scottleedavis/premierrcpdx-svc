@@ -1,11 +1,10 @@
 rctech-forum-scraper
 ====================
 
-scraping race results from rc-tech, and posting them to results page of premierrcpdx.com
+scraping race results from rc-tech, for there class forums of premier rc raceways
 
-TODO
-----
-Currently migrating storage of results in YAML file, to mongodb.
+1.  Looks for oval, offroad and onroad results
+2.  saves the results to MongoLab (free mongodb hosting)
 
 
 
