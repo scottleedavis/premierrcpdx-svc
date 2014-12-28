@@ -23,5 +23,4 @@ get_results(oval) do |resp|
 end
 
 puts results
-stash results #leave a history saving to yml until we 'trust' mongodb.
 upload results
