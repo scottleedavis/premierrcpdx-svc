@@ -1,4 +1,3 @@
-require 'yaml'
 require 'mongo'
 require 'bson'
 include Mongo
